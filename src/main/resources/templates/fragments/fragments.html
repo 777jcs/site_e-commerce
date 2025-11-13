@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- ========================================================================= -->
+<!-- ===============   FRAGMENT : HEADER (en-tête du site)   ================= -->
+<!-- ========================================================================= -->
+<!--
+    th:fragment="header"
+    → Permet d'insérer ce bloc dans d'autres pages avec :
+      <header th:replace="fragments/fragments :: header"></header>
+-->
+<div th:fragment="header" class="snk-header shadow-sm">
+
+    <!--
+        container : centre le contenu (Bootstrap)
+        d-flex : active flexbox
+        align-items-center : aligne verticalement au centre
+        justify-content-between : espace entre logo / menu / icônes
+        py-3 : padding vertical
+    -->
+    <div class="container d-flex align-items-center justify-content-between py-3">
+
+        <!-- ======================= -->
+        <!--        BLOC LOGO        -->
+        <!-- ======================= -->
+
+        <div class="snk-logo-icon d-flex align-items-center justify-content-center">
+            <img th:src="@{/img/logo/SnkHouselogo.png}" alt="SnkHouse Logo" class="snk-logo-img">
+        </div>
+
+        <div class="d-flex align-items-center gap-2">
+
+            <!--
+                snk-logo-icon : ta classe CSS perso
+                d-flex + justify-content-center → centre l’icône
+            -->
+            <div class="snk-logo-icon d-flex align-items-center justify-content-center">
+
+                <!--
+                    Icône Bootstrap : bi-house-door
+                    Tu peux le remplacer par n’importe quelle icône de :
+                    https://icons.getbootstrap.com/
+                -->
+                <i class="bi bi-house-door"></i>
+            </div>
+
+            <!-- Texte du logo (nom de ton site) -->
+            <span class="snk-logo-text">SnkHouse</span>
+        </div>
+
+        <!-- =========================== -->
+        <!--        MENU NAVIGATION       -->
+        <!-- =========================== -->
+
+        <!--
+            d-none d-md-block :
+            → cache le menu sur petit écran (mobile)
+            → montre le menu à partir de "md" (tablette, PC)
+        -->
+        <nav class="snk-nav d-none d-md-block">
+
+            <!--
+                d-flex : menu horizontal
+                gap-4 : espace entre les liens
+                mb-0 : enlève la marge du bas
+            -->
+            <ul class="d-flex gap-4 mb-0">
+
+                <!--
+                    Lien ACCUEIL
+                    ⚠️ Ton href="/static" n'est PAS correct pour la page d'accueil
+                       → La vraie page d’accueil = "/"
+                -->
+                <li><a href="/static" class="snk-nav-link active">ACCUEIL</a></li>
+
+                <!-- Autres liens du menu -->
+                <li><a href="#" class="snk-nav-link">NOUVEAUTÉS</a></li>
+                <li><a href="#" class="snk-nav-link">MARQUES</a></li>
+                <li><a href="#" class="snk-nav-link">HOMME</a></li>
+                <li><a href="#" class="snk-nav-link">FEMME</a></li>
+            </ul>
+        </nav>
+
+        <!-- =========================== -->
+        <!--        ICÔNES À DROITE      -->
+        <!-- =========================== -->
+        <div class="d-flex align-items-center gap-3 snk-header-icons">
+
+            <!-- Icône recherche -->
+            <a href="#" class="snk-icon-link">
+                <i class="bi bi-search"></i>
+            </a>
+
+            <!-- Icône profil -->
+            <a href="#" class="snk-icon-link">
+                <i class="bi bi-person"></i>
+            </a>
+
+            <!-- Icône panier -->
+            <a href="#" class="snk-icon-link">
+                <i class="bi bi-bag"></i>
+            </a>
+        </div>
+
+    </div> <!-- FIN DU CONTENEUR HEADER -->
+</div> <!-- FIN DU FRAGMENT HEADER -->
+
+
+<!-- ========================================================================= -->
+<!-- =================    FRAGMENT : FOOTER  (bas de page)    ================ -->
+<!-- ========================================================================= -->
+
+<!--
+    th:fragment="footer"
+    → Pour l'insérer dans base.html :
+      <footer th:replace="fragments/fragments :: footer"></footer>
+-->
+<div th:fragment="footer" class="snk-footer mt-5 text-center text-white py-3">
+
+    <!-- Texte du footer -->
+    © SnkHouse — 2028
+
+</div>
+
+</html>

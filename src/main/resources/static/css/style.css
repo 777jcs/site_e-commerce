@@ -1,0 +1,117 @@
+/* ========================================================================= */
+/* =========================   STYLE GLOBAL (BODY)  ======================== */
+/* ========================================================================= */
+
+body.snk-body {
+    background: #111;     /* Couleur de fond du site (noir foncé) */
+    color: white;         /* Couleur de texte par défaut */
+    font-family: Arial, sans-serif;  /* Police principale du site */
+}
+
+/* ========================================================================= */
+/* ==============================   HEADER   ================================ */
+/* ========================================================================= */
+
+.snk-header {
+    background: #111;                /* Couleur de fond du header */
+    border-bottom: 1px solid #ffffff;   /* Petite bordure en bas pour séparer du contenu */
+}
+
+.snk-nav-link {
+    color: #ffffff;            /* Couleur des liens du menu */
+    text-decoration: none;  /* Supprime le soulignement */
+    font-weight: 500;       /* Met un poids moyen (un peu plus épais) */
+}
+
+.snk-nav-link:hover {
+    color: white;           /* Couleur du lien au survol */
+}
+
+/* ========================================================================= */
+/* ==============================   HERO   ================================= */
+/* ========================================================================= */
+
+.snk-hero {
+    background: linear-gradient(180deg, #111 0%, #131313 100%); /* Dégradé noir */
+    padding: 60px 0;   /* Espace top + bottom */
+}
+
+.snk-hero-title {
+    font-size: 40px;    /* Taille du titre principal */
+    font-weight: bold;  /* Titre en gras */
+    color: white;      /* Le slogan*/
+}
+
+/* Conteneur de l'image dans le hero */
+.snk-hero-image {
+    background: #222;             /* Fond gris foncé derrière l'image */
+    height: 250px;                /* Hauteur du bloc image */
+    border-radius: 20px;          /* Coins arrondis */
+    display: flex;                /* Centre verticalement et horizontalement */
+    justify-content: center;
+    align-items: center;
+}
+
+/* ========================================================================= */
+/* ==============================  PRODUITS  =============================== */
+/* ========================================================================= */
+
+/* Conteneur global d’un produit */
+.snk-product {
+    background: #1a1a1a;  /* Fond gris foncé */
+    border-radius: 12px;  /* Coins arrondis */
+    padding: 10px;        /* Espace interne */
+}
+
+/* Bloc contenant l’image d’un produit */
+.snk-product-img {
+    background: #222;                /* Fond plus clair derrière l’image */
+    height: 150px;                   /* Hauteur du bloc image produit */
+    border-radius: 10px;             /* Coins arrondis */
+    display: flex;                   /* Centre l'image */
+    align-items: center;
+    justify-content: center;
+}
+
+/* Bouton principal (ex: ajouter au panier) */
+.snk-btn-primary {
+    background: #000000;   /* Fond blanc */
+    color: #ffffff;        /* Texte noir */
+    font-weight: bold;   /* Texte en gras */
+}
+
+/* Bouton secondaire (optionnel) */
+.snk-btn-secondary {
+    background: #191919;    /* Fond gris */
+    color: white;        /* Texte blanc */
+}
+
+/* ========================================================================= */
+/* ==============================   FOOTER   =============================== */
+/* ========================================================================= */
+
+.snk-footer {
+    border-top: 1px solid #333;  /* Petite ligne en haut du footer */
+    background: #111;            /* Fond noir foncé */
+}
+
+/* Liens dans le footer */
+.snk-footer-link {
+    color: #bbb;   /* Gris clair */
+}
+
+/* Effet au survol */
+.snk-footer-link:hover {
+    color: white;  /* Devient blanc */
+}
+
+/* ========================================================================= */
+/* ==============================   LOGO   ================================= */
+/* ========================================================================= */
+
+/* Style du logo (dans le header) */
+.snk-logo-img {
+    height: 150px;    /* Taille du logo (tu peux réduire à 40px pour un header normal) */
+    width: auto;      /* Garde les proportions d’origine */
+    object-fit: contain; /* Ajuste l'image sans la déformer */
+}

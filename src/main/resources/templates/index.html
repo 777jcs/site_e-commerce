@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html th:replace="base :: html" xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="content">
+
+    <!-- HERO -->
+    <section class="snk-hero">
+        <div class="container py-5">
+            <div class="row align-items-center">
+
+                <div class="col-md-6">
+                    <h1 class="snk-hero-title">
+                        Retrouve toutes tes <br>
+                        <strong>paires du moment </strong>
+                    </h1>
+                    <p class="snk-hero-subtext">Rapport Qualité / Prix — SnkHouse</p>
+                    <button class="btn snk-btn-primary mt-3">
+                        VOIR LES NOUVEAUTÉS
+                    </button>
+                </div>
+
+                <div class="col-md-6 text-center">
+                    <div class="snk-hero-image">Sneaker Image</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUITS -->
+    <section class="container py-4">
+        <h2 class="text-white mb-4">Nos paires du moment</h2>
+
+        <div class="row gy-4">
+
+            <div class="col-6 col-md-3">
+                <div class="snk-product">
+                    <div class="snk-product-img">Noime mène</div>
+                    <div class="snk-product-info">
+                        <h5>Noime mène</h5>
+                        <p>103 €</p>
+                        <button class="btn snk-btn-secondary w-100">AJOUTER AU PANIER</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <div class="snk-product">
+                    <div class="snk-product-img">Valijent as</div>
+                    <div class="snk-product-info">
+                        <h5>Valijent as</h5>
+                        <p>320 €</p>
+                        <button class="btn snk-btn-secondary w-100">AJOUTER AU PANIER</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</div>
+</html>
