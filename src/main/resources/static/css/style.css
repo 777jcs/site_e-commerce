@@ -3,7 +3,7 @@
 /* ========================================================================= */
 
 body.snk-body {
-    background: #111;     /* Couleur de fond du site (noir foncé) */
+    background: #131313;     /* Couleur de fond du site (noir foncé) */
     color: white;         /* Couleur de texte par défaut */
     font-family: Arial, sans-serif;  /* Police principale du site */
 }
@@ -11,9 +11,11 @@ body.snk-body {
 /* ========================================================================= */
 /* ==============================   HEADER   ================================ */
 /* ========================================================================= */
-
+.snk-logo-text  {
+    color: white;
+}
 .snk-header {
-    background: #111;                /* Couleur de fond du header */
+    background: #000000;                /* Couleur de fond du header */
     border-bottom: 1px solid #ffffff;   /* Petite bordure en bas pour séparer du contenu */
 }
 
@@ -31,6 +33,25 @@ body.snk-body {
 /* ==============================   HERO   ================================= */
 /* ========================================================================= */
 
+/* Le cadre du hero */
+.snk-hero-image {
+    background: #222;        /* Fond gris foncé */
+    height: 250px;           /* La hauteur du cadre (tu peux augmenter si tu veux) */
+    border-radius: 20px;     /* Coins arrondis */
+    overflow: hidden;        /* Empêche l’image de sortir du cadre */
+    display: flex;
+    justify-content: center;
+    align-items: center;     /* Centre l’image */
+}
+
+/* L’image dans le hero */
+.snk-hero-img {
+    width: 100%;             /* L’image prend toute la largeur */
+    height: 100%;            /* L’image prend toute la hauteur */
+    object-fit: cover;       /* Ajuste l’image SANS la déformer */
+}
+
+
 .snk-hero {
     background: linear-gradient(180deg, #111 0%, #131313 100%); /* Dégradé noir */
     padding: 60px 0;   /* Espace top + bottom */
@@ -42,6 +63,16 @@ body.snk-body {
     color: white;      /* Le slogan*/
 }
 
+.snk-hero-subtext{
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+}
+
+.ext-white mb{
+    color: white;
+}
+
 /* Conteneur de l'image dans le hero */
 .snk-hero-image {
     background: #222;             /* Fond gris foncé derrière l'image */
@@ -50,6 +81,15 @@ body.snk-body {
     display: flex;                /* Centre verticalement et horizontalement */
     justify-content: center;
     align-items: center;
+}
+
+
+/* ========================================================================= */
+/* ==============================    body    =============================== */
+/* ========================================================================= */
+
+body.snk-body {
+    background: #000000;
 }
 
 /* ========================================================================= */
@@ -74,21 +114,25 @@ body.snk-body {
 }
 
 /* Bouton principal (ex: ajouter au panier) */
-.snk-btn-primary {
-    background: #000000;   /* Fond blanc */
+.bouton-hero {
+    background: rgba(80, 45, 24, 0.7);   /* Fond blanc */
     color: #ffffff;        /* Texte noir */
     font-weight: bold;   /* Texte en gras */
 }
 
 /* Bouton secondaire (optionnel) */
-.snk-btn-secondary {
-    background: #191919;    /* Fond gris */
+.bouton-produit {
+    background: rgba(80, 45, 24, 0.7);    /* Fond gris */
     color: white;        /* Texte blanc */
 }
 
 /* ========================================================================= */
 /* ==============================   FOOTER   =============================== */
 /* ========================================================================= */
+.snk-footer {
+    background: #000000;          /* Noir pur */
+    border-top: 1px solid #1a1a1a; /* Ligne fine moderne */
+}
 
 .snk-footer {
     border-top: 1px solid #333;  /* Petite ligne en haut du footer */
@@ -97,7 +141,7 @@ body.snk-body {
 
 /* Liens dans le footer */
 .snk-footer-link {
-    color: #bbb;   /* Gris clair */
+    color: #ffffff;   /* Gris clair */
 }
 
 /* Effet au survol */
@@ -115,3 +159,4 @@ body.snk-body {
     width: auto;      /* Garde les proportions d’origine */
     object-fit: contain; /* Ajuste l'image sans la déformer */
 }
+
