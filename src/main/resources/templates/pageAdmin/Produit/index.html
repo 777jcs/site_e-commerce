@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Produits</title>
+
+    <!-- Chargement de Bootstrap pour avoir une mise en page prête à l'emploi -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+
+<body class="p-4">
+
+<!-- ============================================================
+     TITRE DE LA PAGE
+     ============================================================ -->
+<h1 class="mb-4">📦 Gestion des Produits</h1>
+
+<!--
+    Petit texte explicatif pour préciser à l'administrateur
+    ce qu’il voit sur cette page.
+-->
+<p class="lead">
+    Retrouvez ici la liste complète des produits disponibles dans la boutique.
+    Vous pouvez créer, modifier ou supprimer un produit.
+</p>
+
+
+<!-- ============================================================
+     BOUTON D'AJOUT
+     ============================================================
+     Ce bouton mène à une autre page : produit/create.html
+     Ce sera la page où l’administrateur crée un nouveau produit.
+-->
+<a href="/admin/produit/create" class="btn btn-success mb-3">➕ Ajouter un produit</a>
+
+
+<!-- ============================================================
+    TABLEAU DES PRODUITS
+    ============================================================
+    Le tableau affiche tous les produits envoyés par ton contrôleur :
+
+        model.addAttribute("produits", produitDAO.findAll())
+
+    La variable Thymeleaf "produits" représente une liste de Produit.
+-->
+<table class="table table-striped table-hover">
+    <thead class="table-dark">
+    <tr>
+        <th>ID</th>              <!-- Identifiant du produit -->
+        <th>Nom</th>             <!-- Nom du produit -->
+        <th>Prix</th>            <!-- Prix du produit -->
+        <th>Stock</th>           <!-- Stock disponible -->
+        <th>Catégorie</th>       <!-- Catégorie liée -->
+        <th>Actions</th>         <!-- Boutons modifier/supprimer -->
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <!-- ============================================================== -->
+    <!-- Thymeleaf : boucle sur la liste des produits -->
+    <!--
+        th:each = "p : ${produits}"
+        ----------------------------------------
+        Pour chaque élément de la liste "produits",
+        Thymeleaf crée une variable p (pour produit).
+    -->
+    <tr th:each="p : ${produits}">
+
+        <!-- Affichage de l’ID -->
+        <td th:text="${p.id}"></td>
+
+        <!-- Affichage du nom -->
+        <td th:text="${p.nom}"></td>
+
+        <!-- Affichage du prix -->
+        <td th:text="${p.prix} + ' €'"></td>
+
+        <!-- Stock -->
+        <td th:text="${p.stock}"></td>
+
+        <!-- Catégorie : on va chercher le nom de la catégorie liée -->
+        <td th:text="${p.categorie.nom}"></td>
+
+        <!-- Enfin, les actions possibles -->
+        <td>
+
+            <!-- Bouton pour modifier le produit -->
+            <a th:href="@{'/admin/produit/edit/' + ${p.id}}"
+               class="btn btn-primary btn-sm">
+                ✏ Modifier
+            </a>
+
+            <!-- Bouton pour supprimer le produit -->
+            <a th:href="@{'/admin/produit/delete/' + ${p.id}}"
+               class="btn btn-danger btn-sm"
+               onclick="return confirm('Voulez-vous vraiment supprimer ce produit ?');">
+                🗑 Supprimer
+            </a>
+
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+
+</body>
+</html>

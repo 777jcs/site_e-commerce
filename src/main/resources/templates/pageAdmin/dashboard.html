@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Tableau de bord Administrateur</title>
+
+    <!--
+        BOOTSTRAP
+        ==========================================================
+        On utilise Bootstrap pour produire rapidement une interface
+        graphique moderne, responsive et propre, sans écrire
+        beaucoup de CSS manuel.
+    -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+    <style>
+        /*
+           CSS DU TABLEAU DE BORD
+           ==========================================================
+           On crée une sidebar latérale pour l’administration.
+           Elle reste collée sur la gauche sur toute la hauteur du site.
+        */
+        .sidebar {
+            width: 230px;
+            height: 100vh;       /* 100% de la hauteur de l'écran */
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #343a40; /* gris foncé = style admin */
+            padding-top: 20px;
+        }
+
+        /* Style des liens dans la sidebar */
+        .sidebar a {
+            color: #ddd;          /* gris clair */
+            display: block;       /* prend toute la largeur */
+            padding: 12px 20px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        /* Effet au survol */
+        .sidebar a:hover {
+            background-color: #495057;
+            color: white;
+        }
+
+        /* Contenu principal repoussé vers la droite */
+        .content {
+            margin-left: 250px; /* espace réservé pour la sidebar */
+            padding: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+<!-- ===========================================================
+     BARRE LATERALE (SIDEBAR ADMIN)
+     =========================================================== -->
+<div class="sidebar">
+
+    <!-- Titre de la sidebar -->
+    <h4 class="text-center text-light mb-4">Admin Panel</h4>
+
+    <!--
+         Chaque lien correspond à un contrôleur de ton back-office.
+         Il faudra avoir des contrôleurs comme :
+         - AdminCategorieController
+         - AdminProduitController
+         - AdminAvisController
+         etc.
+    -->
+
+    <a href="/admin">🏠 Dashboard</a>
+
+    <a href="/admin/categorie">📂 Catégories</a>
+
+    <a href="/admin/produit">📦 Produits</a>
+
+    <a href="/admin/commande">🛒 Commandes</a>
+
+    <a href="/admin/utilisateurs">👥 Utilisateurs</a>
+
+    <a href="/admin/avis">⭐ Avis</a>
+
+</div>
+
+
+
+<!-- ===========================================================
+     CONTENU PRINCIPAL DE LA PAGE ADMIN
+     =========================================================== -->
+<div class="content">
+
+    <!-- Titre principal -->
+    <h1 class="mb-4">Bienvenue dans le Back Office</h1>
+
+    <!-- Texte explicatif -->
+    <p class="lead">
+        Cette interface est réservée aux administrateurs.
+        Elle vous permet de gérer toutes les données critiques du site :
+        utilisateurs, produits, catégories, commandes et avis clients.
+    </p>
+
+
+    <!-- =======================================================
+         CARTES DE STATISTIQUES OU DE RACCROURCIS
+         Chaque carte représente une section du back-office.
+         Elles rendent l'interface intuitive pour l’administrateur.
+         ======================================================= -->
+    <div class="row mt-4">
+
+        <!-- CARTE "UTILISATEURS" -->
+        <div class="col-md-4">
+            <div class="card shadow-sm mb-3">
+
+                <!-- Corps de la carte -->
+                <div class="card-body">
+
+                    <!-- Titre -->
+                    <h5 class="card-title">👥 Utilisateurs</h5>
+
+                    <!-- Description -->
+                    <p class="card-text">
+                        Gérer les comptes utilisateurs : consultation, création, modification, suppression.
+                    </p>
+
+                    <!-- Bouton vers la page de liste -->
+                    <a href="/admin/utilisateurs" class="btn btn-primary">Accéder</a>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- CARTE "PRODUITS" -->
+        <div class="col-md-4">
+            <div class="card shadow-sm mb-3">
+                <div class="card-body">
+
+                    <h5 class="card-title">📦 Produits </h5>
+
+                    <p class="card-text">
+                        Ajouter, éditer et supprimer les produits du catalogue.
+                    </p>
+
+                    <a href="/admin/produit" class="btn btn-primary">Accéder</a>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- CARTE "COMMANDES" -->
+        <div class="col-md-4">
+            <div class="card shadow-sm mb-3">
+                <div class="card-body">
+
+                    <h5 class="card-title">🛒 Commandes</h5>
+
+                    <p class="card-text">
+                        Suivre les commandes clients et mettre à jour leur statut.
+                    </p>
+
+                    <a href="/admin/commande" class="btn btn-primary">Accéder</a>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!-- =======================================================
+         DEUXIÈME LIGNE DE CARTES
+         ======================================================= -->
+    <div class="row">
+
+        <!-- CARTE "CATÉGORIES" -->
+        <div class="col-md-4">
+            <div class="card shadow-sm mb-3">
+                <div class="card-body">
+
+                    <h5 class="card-title">📂 Catégories</h5>
+
+                    <p class="card-text">
+                        Organiser les catégories utilisées pour regrouper les produits.
+                    </p>
+
+                    <a href="/admin/categorie" class="btn btn-primary">Accéder</a>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- CARTE "AVIS" -->
+        <div class="col-md-4">
+            <div class="card shadow-sm mb-3">
+                <div class="card-body">
+
+                    <h5 class="card-title">⭐ Avis clients</h5>
+
+                    <p class="card-text">
+                        Consulter et modérer les avis laissés par les utilisateurs.
+                    </p>
+
+                    <a href="/admin/avis" class="btn btn-primary">Accéder</a>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+</body>
+</html>

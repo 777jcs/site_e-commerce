@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier un utilisateur</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+
+
+<body class="p-4">
+
+<h1 class="mb-4">Modifier un utilisateur</h1>
+
+
+<!--
+    FORMULAIRE D'ÉDITION
+
+    - th:object = utilisateur récupéré par le controller
+    - th:action = URL /admin/utilisateurs/edit/{id}
+
+    L’ID est inséré dynamiquement :
+        @{'/admin/utilisateurs/edit/' + ${utilisateur.idUtilisateur}}
+-->
+<form th:action="@{'/admin/utilisateurs/edit/' + ${utilisateur.idUtilisateur}}"
+      th:object="${utilisateur}"
+      method="post"
+      class="border p-4 rounded shadow-sm">
+
+
+    <!-- Champ NOM pré-rempli -->
+    <div class="mb-3">
+        <label class="form-label">Nom :</label>
+        <input type="text" th:field="*{nom}" class="form-control" required>
+    </div>
+
+
+    <!-- Champ EMAIL pré-rempli -->
+    <div class="mb-3">
+        <label class="form-label">Email :</label>
+        <input type="email" th:field="*{email}" class="form-control" required>
+    </div>
+
+
+    <!-- Champ MOT DE PASSE pré-rempli -->
+    <!--
+        Tu peux décider de NE PAS afficher le mot de passe pour raison de sécurité,
+        mais ici je le laisse pour la simplicité pédagogique.
+    -->
+    <div class="mb-3">
+        <label class="form-label">Mot de passe :</label>
+        <input type="password" th:field="*{motDePasse}" class="form-control" required>
+    </div>
+
+
+    <!-- Rôle pré-sélectionné -->
+    <div class="mb-3">
+        <label class="form-label">Rôle :</label>
+        <select th:field="*{role}" class="form-select">
+            <option value="CLIENT">CLIENT</option>
+            <option value="ADMIN">ADMIN</option>
+        </select>
+    </div>
+
+
+    <!-- Boutons -->
+    <button class="btn btn-warning">Modifier</button>
+    <a href="/admin/utilisateurs" class="btn btn-secondary">Annuler</a>
+
+</form>
+
+</body>
+</html>

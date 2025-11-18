@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!--
+        Titre de la page : affiché dans l'onglet du navigateur
+    -->
+    <title>Back Office - Liste des utilisateurs</title>
+
+    <!--
+        Import de Bootstrap (CDN)
+        Bootstrap permet d'avoir un style propre sans écrire beaucoup de CSS.
+        C'est facultatif mais très conseillé pour un Back Office.
+    -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+
+
+<body class="p-4">
+
+<!--
+    TITRE DE LA PAGE
+    Le "h1" est simplement un titre principal.
+-->
+<h1 class="mb-4">Gestion des utilisateurs</h1>
+
+
+<!--
+    BOUTON : Créer un nouvel utilisateur
+
+    - Le lien pointe vers /admin/utilisateurs/create
+    - C'est l'URL configurée dans ton controller AdminUtilisateurController
+    - Quand on clique dessus, on arrive sur le formulaire de création
+
+    class="btn btn-primary" est une classe Bootstrap
+    -> bouton bleu
+-->
+<a href="/admin/utilisateurs/create" class="btn btn-primary mb-3">
+    ➕ Ajouter un utilisateur
+</a>
+
+
+
+<!--
+    TABLEAU Bootstrap
+
+    Ce tableau va afficher tous les utilisateurs présents en base.
+    La donnée affichée vient du controller :
+
+    Dans AdminUtilisateurController :
+
+        model.addAttribute("utilisateurs", utilisateurDAO.findAll())
+
+    Donc "${utilisateurs}" est la LISTE envoyée par le controller vers la vue.
+-->
+<table class="table table-striped table-bordered">
+
+    <!-- En-tête du tableau -->
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Email</th>
+        <th>Rôle</th>
+        <th>Actions</th> <!-- colonne pour boutons "Modifier" / "Supprimer" -->
+    </tr>
+    </thead>
+
+
+    <!-- Corps du tableau avec les données -->
+    <tbody>
+
+    <!--
+        BOUCLE THYMELEAF :
+
+        th:each = "u : ${utilisateurs}"
+
+        → Pour chaque objet "Utilisateur" dans la liste "utilisateurs",
+          Thymeleaf va créer une ligne <tr>.
+
+        "u" devient une variable représentant UN utilisateur.
+     -->
+    <tr th:each="u : ${utilisateurs}">
+
+        <!--
+            th:text="..." permet d'afficher du texte venant de l'objet
+            Ici : u.idUtilisateur, u.nom, etc.
+        -->
+
+        <td th:text="${u.idUtilisateur}">1</td>
+        <td th:text="${u.nom}">Nom</td>
+        <td th:text="${u.email}">email@example.com</td>
+        <td th:text="${u.role}">CLIENT</td>
+
+
+        <td>
+            <!--
+                BOUTON MODIFIER
+
+                th:href construit dynamiquement l’URL :
+                /admin/utilisateurs/edit/{id}
+
+                Exemple : si id=4 → /admin/utilisateurs/edit/4
+            -->
+            <a th:href="@{'/admin/utilisateurs/edit/' + ${u.idUtilisateur}}"
+               class="btn btn-warning btn-sm">
+                ✏ Modifier
+            </a>
+
+            <!--
+                BOUTON SUPPRIMER
+
+                - On génère une URL : /admin/utilisateurs/delete/{id}
+                - confirm() affiche un message "Êtes-vous sûr ?"
+            -->
+            <a th:href="@{'/admin/utilisateurs/delete/' + ${u.idUtilisateur}}"
+               class="btn btn-danger btn-sm"
+               onclick="return confirm('Voulez-vous vraiment supprimer cet utilisateur ?');">
+                🗑 Supprimer
+            </a>
+        </td>
+
+    </tr>
+
+    </tbody>
+</table>
+
+</body>
+</html>
