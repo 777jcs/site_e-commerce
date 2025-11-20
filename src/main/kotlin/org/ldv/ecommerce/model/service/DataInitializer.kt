@@ -3,6 +3,7 @@ package org.ldv.ecommerce.model.service
 import org.ldv.ecommerce.model.dao.*
 import org.ldv.ecommerce.model.entity.*
 import org.springframework.boot.CommandLineRunner
+import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Component
 
 @Component
@@ -12,12 +13,14 @@ class DataInitializer(
     private val avisDAO: AvisDAO,
     private val utilisateurDAO: UtilisateurDAO,
     private val panierDAO: PanierDAO,
-    private val commandeDAO: CommandeDAO
+    private val commandeDAO: CommandeDAO,
+    private val roleDAO: RoleDAO,                // 🔥 Ajout du DAO des rôles
+    private val passwordEncoder: PasswordEncoder  // 🔥 Ajout de l’encoder
 ) : CommandLineRunner {
 
     override fun run(vararg args: String?) {
 
-        // Si la base contient déjà des données, on ne fait rien
+        // Si la base contient déjà des produits, on ne réinsère rien
         if (produitDAO.count() > 0) {
             println(" Données déjà présentes, initialisation ignorée.")
             return
@@ -25,21 +28,26 @@ class DataInitializer(
 
         println(" Injection des données de test...")
 
+        // === ROLES ===
+        val roleAdmin = Role(nom = "ADMIN")
+        val roleClient = Role(nom = "CLIENT")
+        roleDAO.saveAll(listOf(roleAdmin, roleClient))
+
         // === UTILISATEURS ===
         val user1 = Utilisateur(
             idUtilisateur = null,
             nom = "Durand",
             email = "durand@example.com",
-            motDePasse = "azerty123",
-            role = "CLIENT"
+            mdp = passwordEncoder.encode("Durand123"), //  mot de passe hashé
+            role = roleClient
         )
 
         val admin = Utilisateur(
             idUtilisateur = null,
             nom = "Admin",
             email = "admin@example.com",
-            motDePasse = "admin",
-            role = "ADMIN"
+            mdp = passwordEncoder.encode("admin123"), // mot de passe hashé
+            role = roleAdmin
         )
 
         utilisateurDAO.saveAll(listOf(user1, admin))
@@ -57,7 +65,7 @@ class DataInitializer(
 
         val p2 = Produit(
             idProduit = null,
-            nom = "",
+            nom = "Chaussures Adidas",
             marque = "Adidas",
             description = "Chaussures légères pour la course",
             prix = 89.99f,

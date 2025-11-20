@@ -1,23 +1,27 @@
 package org.ldv.ecommerce.model.entity
 
-
 import jakarta.persistence.*
+
 @Entity
-class Utilisateur (
+class Utilisateur(
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
-    var idUtilisateur: Int?,
+    var idUtilisateur: Long? = null,
 
     @Column(nullable = false)
     var nom: String,
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     var email: String,
 
     @Column(nullable = false)
-    var motDePasse: String,
+    var mdp: String,
 
-    @Column(nullable = false)
-    var role: String
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    var role: Role? = null
+
+
 )

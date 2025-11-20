@@ -11,7 +11,7 @@
                 <div class="col-md-6">
                     <h1 class="snk-hero-title">
                         Retrouve tes <br>
-                        <strong> paires du moment </strong>
+                        <strong> Paires du moment </strong>
                     </h1>
                     <p class="snk-hero-subtext">Rapport Qualité / Prix — SnkHouse</p>
                     <button class="btn bouton-hero  mt-3">
@@ -21,13 +21,24 @@
 
                 <div class="col-md-6 text-center">
                     <div class="snk-hero-image">
-                        <img th:src="@{/img/imageDeFond/nikefond.png}" alt="Sneaker Image" class="snk-hero-img">
+                        <img th:src="@{/img/imageDeFond/nikeMoca.jpg}" alt="Sneaker Image" class="snk-hero-img">
                     </div>
                 </div>
 
             </div>
         </div>
     </section>
+    <!-- bande noir -->
+    <div class="snk-separator-top"></div>
+
+    <!-- BANDE D'ANNONCE SOUS LE HERO -->
+    <div class="snk-hero-banner text-center">
+         Nouveauté — sneaker homme, femme et enfant
+    </div>
+    <!-- bande noir -->
+    <div class="snk-separator-top"></div>
+
+
 
     <!-- PRODUITS -->
     <section class="container py-4">
@@ -35,47 +46,51 @@
 
         <div class="row gy-4">
 
+            <!-- PRODUIT 1 -->
             <div class="col-6 col-md-3">
-                <div class="snk-product">
-                    <div class="snk-product-img">Noime mène</div>
-                    <div class="snk-product-info">
-                        <h5>asics</h5>
-                        <p>190 €</p>
-                        <button class="btn bouton-produit w-100">AJOUTER AU PANIER</button>
+                <div class="snk-product-card">
+                    <div class="snk-product-img">
+                        <img th:src="@{/img/imageDeFond/asicsxSneakmart.webp}" alt="asicsXSneakmart">
                     </div>
+                    <h5 class="snk-product-name">asicsXSneakmart</h5>
+                    <p class="snk-product-price">430€</p>
+                    <button class="btn snk-btn-secondary w-100">AJOUTER AU PANIER</button>
                 </div>
             </div>
 
+            <!-- PRODUIT 2 -->
             <div class="col-6 col-md-3">
-                <div class="snk-product">
-                    <div class="snk-product-img">Noime mène</div>
-                    <div class="snk-product-info">
-                        <h5>Nike</h5>
-                        <p>179.99 €</p>
-                        <button class="btn bouton-produit w-100">AJOUTER AU PANIER</button>
+                <div class="snk-product-card">
+                    <div class="snk-product-img">
+                        <img th:src="@{/img/produits/airmax.png}" alt="Nike Air Max 90">
                     </div>
+                    <h5 class="snk-product-name">Nike Air Max 90</h5>
+                    <p class="snk-product-price">129 €</p>
+                    <button class="btn snk-btn-secondary w-100">AJOUTER AU PANIER</button>
                 </div>
             </div>
 
+            <!-- PRODUIT 3 -->
             <div class="col-6 col-md-3">
-                <div class="snk-product">
-                    <div class="snk-product-img">Noime mène</div>
-                    <div class="snk-product-info">
-                        <h5>Adidas</h5>
-                        <p>179.99€</p>
-                        <button class="btn bouton-produit w-100">AJOUTER AU PANIER</button>
+                <div class="snk-product-card">
+                    <div class="snk-product-img">
+                        <img th:src="@{/img/produits/dunklow.png}" alt="Nike Dunk Low Panda">
                     </div>
+                    <h5 class="snk-product-name">Nike Dunk Low Panda</h5>
+                    <p class="snk-product-price">119 €</p>
+                    <button class="btn snk-btn-secondary w-100">AJOUTER AU PANIER</button>
                 </div>
             </div>
 
+            <!-- PRODUIT 4 -->
             <div class="col-6 col-md-3">
-                <div class="snk-product">
-                    <div class="snk-product-img">Valijent as</div>
-                    <div class="snk-product-info">
-                        <h5>Luis Vuitton</h5>
-                        <p>1199.99 €</p>
-                        <button class="btn bouton-produit w-100">AJOUTER AU PANIER</button>
+                <div class="snk-product-card">
+                    <div class="snk-product-img">
+                        <img th:src="@{/img/produits/jordan4.png}" alt="Jordan 4 Fire Red">
                     </div>
+                    <h5 class="snk-product-name">Jordan 4 Fire Red</h5>
+                    <p class="snk-product-price">220 €</p>
+                    <button class="btn snk-btn-secondary w-100">AJOUTER AU PANIER</button>
                 </div>
             </div>
 

@@ -3,24 +3,42 @@
 /* ========================================================================= */
 
 body.snk-body {
-    background: #131313;     /* Couleur de fond du site (noir foncé) */
-    color: white;         /* Couleur de texte par défaut */
+    background: #ffffff;     /* Couleur de fond du site (noir foncé) */
+    color: #000000;         /* Couleur de texte par défaut */
     font-family: Arial, sans-serif;  /* Police principale du site */
 }
 
 /* ========================================================================= */
 /* ==============================   HEADER   ================================ */
 /* ========================================================================= */
+/* BANDE SOUS LE HEADER */
+.snk-top-banner {
+    background: rgb(255, 255, 255);   /*  Couleur de la bande (modifiable) */
+    color: #000000;          /* Couleur du texte */
+    padding: 35px 0;       /* Hauteur de la bande */
+    font-size: 25px;       /* Taille du texte */
+    font-weight: 600;      /* Texte plus prononcé */
+    letter-spacing: 1px;   /* Espacement moderne */
+    text-transform: uppercase; /* Style moderne */
+}
+/* ligne sous la bande du header */
+.snk-separator-top {
+    width: 100%;
+    height: 2px;
+    background: #222;
+}
+
+
 .snk-logo-text  {
-    color: white;
+    color: #000000;
 }
 .snk-header {
-    background: #000000;                /* Couleur de fond du header */
-    border-bottom: 1px solid #ffffff;   /* Petite bordure en bas pour séparer du contenu */
+    background: #ffffff;                /* Couleur de fond du header */
+    border-bottom: 1px solid #000000;   /* Petite bordure en bas pour séparer du contenu */
 }
 
 .snk-nav-link {
-    color: #ffffff;            /* Couleur des liens du menu */
+    color: #000000;            /* Couleur des liens du menu */
     text-decoration: none;  /* Supprime le soulignement */
     font-weight: 500;       /* Met un poids moyen (un peu plus épais) */
 }
@@ -35,8 +53,8 @@ body.snk-body {
 
 /* Le cadre du hero */
 .snk-hero-image {
-    background: #222;        /* Fond gris foncé */
-    height: 250px;           /* La hauteur du cadre (tu peux augmenter si tu veux) */
+    background: #ffffff;        /* Fond gris foncé */
+    height: 400px;           /* La hauteur du cadre (tu peux augmenter si tu veux) */
     border-radius: 20px;     /* Coins arrondis */
     overflow: hidden;        /* Empêche l’image de sortir du cadre */
     display: flex;
@@ -53,14 +71,14 @@ body.snk-body {
 
 
 .snk-hero {
-    background: linear-gradient(180deg, #111 0%, #131313 100%); /* Dégradé noir */
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.19) 0%, rgba(80, 45, 24, 0.7) 100%); /* Dégradé noir */
     padding: 60px 0;   /* Espace top + bottom */
 }
 
 .snk-hero-title {
     font-size: 40px;    /* Taille du titre principal */
     font-weight: bold;  /* Titre en gras */
-    color: white;      /* Le slogan*/
+    color: #000000;      /* Le slogan*/
 }
 
 .snk-hero-subtext{
@@ -76,7 +94,8 @@ body.snk-body {
 /* Conteneur de l'image dans le hero */
 .snk-hero-image {
     background: #222;             /* Fond gris foncé derrière l'image */
-    height: 250px;                /* Hauteur du bloc image */
+    height: 300px;               /* Hauteur du bloc image */
+    width: 110%;
     border-radius: 20px;          /* Coins arrondis */
     display: flex;                /* Centre verticalement et horizontalement */
     justify-content: center;
@@ -89,8 +108,82 @@ body.snk-body {
 /* ========================================================================= */
 
 body.snk-body {
-    background: #000000;
+    background: #ffffff;
 }
+.snk-hero-banner {
+    background: rgb(255, 255, 255);   /* Couleur personnalisable */
+    color: #7e4444;
+    padding: 30px 0;
+    font-size: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.snk-hero-2banner {
+    background: rgb(0, 0, 0);   /* Couleur personnalisable */
+    color: #ffffff;
+    padding: 1px 0;
+    font-size: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ======= CARTE PRODUIT MODERNE ======= */
+.snk-product-card {
+    background: rgb(255, 255, 255);
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+}
+
+/* Effet hover (JD Sport / Foot Locker) */
+.snk-product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgb(22, 19, 19);
+}
+
+/* Image */
+.snk-product-img {
+    background: #101010;
+    height: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Style de l’image */
+.snk-product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Zoom de l’image au survol */
+.snk-product-card:hover .snk-product-img img {
+    transform: scale(1.1);
+}
+
+/* Texte */
+.snk-product-name {
+    color: white;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.snk-product-price {
+    color: #bbb;
+    margin-bottom: 10px;
+}
+
+
+
 
 /* ========================================================================= */
 /* ==============================  PRODUITS  =============================== */
@@ -98,7 +191,7 @@ body.snk-body {
 
 /* Conteneur global d’un produit */
 .snk-product {
-    background: #1a1a1a;  /* Fond gris foncé */
+    background: #ffffff;  /* Fond gris foncé */
     border-radius: 12px;  /* Coins arrondis */
     padding: 10px;        /* Espace interne */
 }
@@ -116,37 +209,37 @@ body.snk-body {
 /* Bouton principal (ex: ajouter au panier) */
 .bouton-hero {
     background: rgba(80, 45, 24, 0.7);   /* Fond blanc */
-    color: #ffffff;        /* Texte noir */
+    color: #000000;        /* Texte noir */
     font-weight: bold;   /* Texte en gras */
 }
 
 /* Bouton secondaire (optionnel) */
 .bouton-produit {
     background: rgba(80, 45, 24, 0.7);    /* Fond gris */
-    color: white;        /* Texte blanc */
+    color: #000000;        /* Texte blanc */
 }
 
 /* ========================================================================= */
 /* ==============================   FOOTER   =============================== */
 /* ========================================================================= */
 .snk-footer {
-    background: #000000;          /* Noir pur */
-    border-top: 1px solid #1a1a1a; /* Ligne fine moderne */
+    background: #ffffff;          /* Noir pur */
+    border-top: 1px solid #ffffff; /* Ligne fine moderne */
 }
 
 .snk-footer {
-    border-top: 1px solid #333;  /* Petite ligne en haut du footer */
-    background: #111;            /* Fond noir foncé */
+    border-top: 1px solid #ffffff;  /* Petite ligne en haut du footer */
+    background: #ffffff;            /* Fond noir foncé */
 }
 
 /* Liens dans le footer */
 .snk-footer-link {
-    color: #ffffff;   /* Gris clair */
+    color: #754545;   /* Gris clair */
 }
 
 /* Effet au survol */
 .snk-footer-link:hover {
-    color: white;  /* Devient blanc */
+    color: #754545;  /* Devient blanc */
 }
 
 /* ========================================================================= */
